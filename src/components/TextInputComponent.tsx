@@ -1,4 +1,5 @@
 import React from "react";
+import {Button, Container, TextField, Typography} from "@mui/material";
 
 interface IState {
 	text: string;
@@ -18,14 +19,14 @@ export class TextInputComponent extends React.Component<{}, IState> {
 
 	render(): React.ReactNode {
 		return (
-			<div className='App'>
-				<h2>Text input</h2>
-				<input type="text" onChange={this.handleChange} value={this.state.text}/>
+			<Container>
+				<Typography variant="h6">Text input</Typography>
+				<TextField type="number" onChange={this.handleChange} value={this.state.text}/>
 				<div>
-					{this.state.text}
+					Selected value: {this.state.text}
 				</div>
-				<button onClick={() => this.setState({text: ''})}>Clear</button>
-			</div>
+				<Button onClick={() => this.setState({text: ''})}>Clear</Button>
+			</Container>
 		);
 	}
 }

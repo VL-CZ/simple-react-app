@@ -1,34 +1,15 @@
 import React from "react";
 import logo from "../logo.svg";
-import {CounterComponent} from "./CounterComponent";
+import {Container, Typography} from "@mui/material";
 
-interface ICounterState {
-	value: number;
-}
-
-export class LogoComponent extends React.Component<{}, ICounterState> {
-	constructor(props: {}) {
-		super(props);
-		this.state = {
-			value: 0
-		};
-	}
-
-	incrementCounter(): void {
-		const oldValue = this.state.value;
-		this.setState({
-			value: oldValue + 1
-		});
-	}
+export class LogoComponent extends React.Component{
 
 	render(): React.ReactNode {
 		return (
-			<div>
-				<h2>React Logo</h2>
+			<Container>
+				<Typography variant="h6">React Logo</Typography>
 				<img src={logo} className="App-logo" alt="logo"/>
-				<CounterComponent value={this.state.value} callback={() => this.incrementCounter()}/>
-				<CounterComponent value={this.state.value} callback={() => this.incrementCounter()}/>
-			</div>
+			</Container>
 		);
 	}
 }

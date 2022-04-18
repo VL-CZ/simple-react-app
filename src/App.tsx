@@ -3,23 +3,23 @@ import './App.css';
 import {
 	Outlet, Link
 } from "react-router-dom";
+import {AppBar, Button, Toolbar} from "@mui/material";
 
 export default class App extends React.Component {
 	render(): React.ReactNode {
 		return (
 			<div>
-				<h1>React Demo App</h1>
-				<nav
-					style={{
-						borderBottom: "solid 1px",
-						paddingBottom: "1rem",
-					}}
-				>
-					<Link to="/form">Text input page</Link>
-					<br/>
-					<Link to="/logo">Logo page</Link>
-				</nav>
-				<Outlet/>
+				<AppBar position="static">
+					<Toolbar>
+						<Button component={Link} to="/form" color="inherit">Text input</Button>
+						<Button component={Link} to="/logo" color="inherit">Logo</Button>
+						<Button component={Link} to="/incCounter" color="inherit">Counter increment</Button>
+						<Button component={Link} to="/decCounter" color="inherit">Counter decrement</Button>
+					</Toolbar>
+				</AppBar>
+				<div>
+					<Outlet/>
+				</div>
 			</div>
 		);
 	}

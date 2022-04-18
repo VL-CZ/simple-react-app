@@ -1,19 +1,37 @@
 import React from "react";
+import {useAppDispatch, useAppSelector} from "../app/hooks";
+import {decrement, increment, selectCount} from "../store/counterSlice";
+import {Button, Container, Typography} from "@mui/material";
 
-interface ICounterProps {
-	value: number;
-	callback: () => void;
+export function IncCounterComponent(props: {}) {
+	const count = useAppSelector((state) => selectCount(state));
+	const dispatch = useAppDispatch();
+	return (
+		<Container>
+			<Typography variant="h6">Shared counter increment</Typography>
+			<Button onClick={() => {
+				dispatch(increment())
+			}}>
+				Increment
+			</Button>
+			<div>Counter value: {count}</div>
+		</Container>
+	)
 }
 
 
-export class CounterComponent extends React.Component<ICounterProps> {
-	render(): React.ReactNode {
-		return (
-			<div>
-				<h2>Shared counter</h2>
-				<button onClick={() => this.props.callback()}>Increment</button>
-				<div>{this.props.value}</div>
-			</div>
-		)
-	}
+export function DecCounterComponent() {
+	const count = useAppSelector((state) => selectCount(state));
+	const dispatch = useAppDispatch();
+	return (
+		<Container>
+			<Typography variant="h6">Shared counter decrement</Typography>
+			<Button onClick={() => {
+				dispatch(decrement())
+			}}>
+				Decrement
+			</Button>
+			<div>Counter value: {count}</div>
+		</Container>
+	)
 }
