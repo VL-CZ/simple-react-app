@@ -6,6 +6,7 @@ See the [requirements](https://webik.ms.mff.cuni.cz/labs/04-js.html).
 
 Technologies used:
 - React (initialized by create-react-app)
+- TypeScript
 - MUI
 - Redux for state management of the counter
 
